@@ -1,0 +1,13 @@
+{
+  "name": "anjay-service-structure",
+  "version": "1.0.0",
+  "description": "this service structure ....",
+  "main": "index.js",
+  "repository": "unknown",
+  "author": "Ardian & Junior",
+  "license": "0BSD",
+  "private": "false",
+  "dependencies": {
+    "typescript": "^4.1.3"
+  }
+}
