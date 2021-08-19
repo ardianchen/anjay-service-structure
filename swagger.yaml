@@ -1,0 +1,1206 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: BNPL
+  contact: {}
+host: 127.0.0.1:3000
+basePath: /api
+securityDefinitions:
+  auth:
+    type: basic
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /core_transaction/transactionbucket:
+    post:
+      summary: Create transaction bucket
+      tags:
+        - transaction
+      operationId: Createtransactionbucket
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/CreatetransactionbucketRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /transaction/list:
+    get:
+      summary: get list
+      tags:
+        - transaction
+      operationId: getlist
+      deprecated: false
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /transaction/detail/1:
+    get:
+      summary: get detail
+      tags:
+        - transaction
+      operationId: getdetail
+      deprecated: false
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /core_merchant/auth/signin:
+    post:
+      summary: Merchant Login
+      tags:
+        - merchant
+      operationId: MerchantLogin
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/MerchantLoginRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /core_merchant/auth/signup:
+    post:
+      summary: Merchant Register
+      tags:
+        - merchant
+      operationId: MerchantRegister
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/MerchantRegisterRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /merchant/list:
+    get:
+      summary: get home
+      tags:
+        - merchant
+      operationId: gethome
+      deprecated: false
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /merchant/banner:
+    get:
+      summary: get banner
+      tags:
+        - merchant
+      operationId: getbanner
+      deprecated: false
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /merchant/category:
+    get:
+      summary: get category
+      tags:
+        - merchant
+      operationId: getcategory
+      deprecated: false
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /api/core_admin/auth/signin:
+    post:
+      summary: Admin Login
+      tags:
+        - admin
+      operationId: AdminLogin
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminLoginRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /api/core_admin/admin/register:
+    post:
+      summary: Register admin
+      tags:
+        - admin
+      operationId: Registeradmin
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/RegisteradminRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /v2/credit_card_tokens:
+    post:
+      summary: 1. Create card token
+      tags:
+        - card
+      operationId: 1.Createcardtoken
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/1.CreatecardtokenRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /credit_card_tokens/{card_token}/authentications:
+    post:
+      summary: 2. Create card token authentication
+      tags:
+        - card
+      operationId: 2.Createcardtokenauthentication
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/2.CreatecardtokenauthenticationRequest'
+        - name: card_token
+          in: path
+          required: true
+          type: string
+          description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /credit_card_charges:
+    post:
+      summary: 3. Create card charges
+      tags:
+        - card
+      operationId: 3.Createcardcharges
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/3.CreatecardchargesRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /customers:
+    post:
+      summary: 1. get customer id
+      tags:
+        - ewallet
+      operationId: 1.getcustomerid
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/1.getcustomeridrequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /linked_account_tokens/auth:
+    post:
+      summary: 2. Linked token
+      tags:
+        - ewallet
+      operationId: 2.Linkedtoken
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/2.LinkedtokenRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /user:
+    put:
+      description: get detail user
+      summary: user detail
+      tags:
+        - user
+      operationId: userdetail
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/userdetailrequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /auth/verify-otp:
+    post:
+      summary: OTP checker
+      tags:
+        - user
+      operationId: OTPchecker
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/OTPcheckerRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /auth/signup:
+    post:
+      summary: signup
+      tags:
+        - user
+      operationId: signup
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/signuprequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /user/detail:
+    get:
+      summary: user get detail
+      tags:
+        - user
+      operationId: usergetdetail
+      deprecated: false
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /user/registration/persoaldata:
+    put:
+      summary: update user personal data(reg 1)
+      tags:
+        - user
+      operationId: updateuserpersonaldata(reg1)
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/updateuserpersonaldata%28reg1%29request'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /user/registration/workdata:
+    put:
+      summary: update user payment data(reg 3)[dana]
+      tags:
+        - user
+      operationId: updateuserpaymentdata(reg3)[dana]
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/updateuserpaymentdata%28reg3%29%5Bdana%5Drequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /user/reqchangepersonalcontact:
+    put:
+      summary: user request change email or pgone number
+      tags:
+        - user
+      operationId: userrequestchangeemailorpgonenumber
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/userrequestchangeemailorpgonenumberrequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /user/changepersonalcontact:
+    put:
+      summary: update change number/email
+      tags:
+        - user
+      operationId: updatechangenumber/email
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/updatechangenumber~1emailrequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /user/pin/change:
+    put:
+      summary: change pin
+      tags:
+        - user
+      operationId: changepin
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/changepinrequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /auth/signin:
+    post:
+      summary: signin
+      tags:
+        - user
+      operationId: signin
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/signinrequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /user/pin/setup:
+    put:
+      summary: pin setup
+      tags:
+        - user
+      operationId: pinsetup
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/pinsetuprequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /user/registration/paymentdata/dana:
+    put:
+      summary: update user payment data(reg 3)[gopay]
+      tags:
+        - user
+      operationId: updateuserpaymentdata(reg3)[gopay]
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/updateuserpaymentdata%28reg3%29%5Bgopay%5Drequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /user/registration/paymentdata/gopay:
+    put:
+      summary: update user payment data(reg 3)[card getToken]
+      tags:
+        - user
+      operationId: updateuserpaymentdata(reg3)[cardgetToken]
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: >-
+              #/definitions/updateuserpaymentdata%28reg3%29%5BcardgetToken%5DRequest
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /user/registration/paymentdata/card/gettoken:
+    put:
+      summary: update user payment data(reg 3)[card check auth or charge]
+      tags:
+        - user
+      operationId: updateuserpaymentdata(reg3)[cardcheckauthorcharge]
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: >-
+              #/definitions/updateuserpaymentdata%28reg3%29%5Bcardcheckauthorcharge%5Drequest
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /user/registration/paymentdata/card/charge:
+    put:
+      summary: update user payment data(reg 3)[card check auth or charge]1
+      tags:
+        - user
+      operationId: updateuserpaymentdata(reg3)[cardcheckauthorcharge]1
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: >-
+              #/definitions/updateuserpaymentdata%28reg3%29%5Bcardcheckauthorcharge%5Drequest
+      responses:
+        '200':
+          description: ''
+          headers: {}
+definitions:
+  CreatetransactionbucketRequest:
+    title: CreatetransactionbucketRequest
+    example:
+      store: 60fe8c2cb891e94f7258171d
+      user: 60fe795b25e49c3dc627c8ab
+      total: 100000
+      terminDuration: 14
+      order_id: ABCDE123TEST
+    type: object
+    properties:
+      store:
+        type: string
+      user:
+        type: string
+      total:
+        type: integer
+        format: int32
+      terminDuration:
+        type: integer
+        format: int32
+      order_id:
+        type: string
+    required:
+      - store
+      - user
+      - total
+      - terminDuration
+      - order_id
+  MerchantLoginRequest:
+    title: MerchantLoginRequest
+    example:
+      username: chen ho
+      password: bolobolo
+    type: object
+    properties:
+      username:
+        type: string
+      password:
+        type: string
+    required:
+      - username
+      - password
+  MerchantRegisterRequest:
+    title: MerchantRegisterRequest
+    example:
+      email: chen.bolobolo@gmail.com
+      username: chen ho
+      password: bolobolo
+      mobileNumber: '087881682396'
+      name: pendi
+      image: google
+      title: swt
+      fImage: google
+      website: www.google.com
+      pic: chen
+      contract: permanen
+    type: object
+    properties:
+      email:
+        type: string
+      username:
+        type: string
+      password:
+        type: string
+      mobileNumber:
+        type: string
+      name:
+        type: string
+      image:
+        type: string
+      title:
+        type: string
+      fImage:
+        type: string
+      website:
+        type: string
+      pic:
+        type: string
+      contract:
+        type: string
+    required:
+      - email
+      - username
+      - password
+      - mobileNumber
+      - name
+      - image
+      - title
+      - fImage
+      - website
+      - pic
+      - contract
+  AdminLoginRequest:
+    title: AdminLoginRequest
+    example:
+      username: nantiajamaster
+      password: hzXJ5f7QNDGahESc1zT8ZGf8Cv6Jt3y
+    type: object
+    properties:
+      username:
+        type: string
+      password:
+        type: string
+    required:
+      - username
+      - password
+  RegisteradminRequest:
+    title: RegisteradminRequest
+    example:
+      firstName: test
+      lastName: admin user
+      displayName: test admin user
+      email: chen@nantiaja.com
+      username: testadminuser
+      password: testAdminUser123***
+      mobileNumber: '0811137273'
+      roles:
+        - useradmin
+    type: object
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      displayName:
+        type: string
+      email:
+        type: string
+      username:
+        type: string
+      password:
+        type: string
+      mobileNumber:
+        type: string
+      roles:
+        type: array
+        items:
+          type: string
+    required:
+      - firstName
+      - lastName
+      - displayName
+      - email
+      - username
+      - password
+      - mobileNumber
+      - roles
+  1.CreatecardtokenRequest:
+    title: 1.CreatecardtokenRequest
+    example:
+      is_single_use: false
+      card_data:
+        account_number: '4000000000000002'
+        exp_month: '09'
+        exp_year: '2028'
+        cvn: '123'
+      should_authenticate: true
+    type: object
+    properties:
+      is_single_use:
+        type: boolean
+      card_data:
+        $ref: '#/definitions/CardData'
+      should_authenticate:
+        type: boolean
+    required:
+      - is_single_use
+      - card_data
+      - should_authenticate
+  CardData:
+    title: CardData
+    example:
+      account_number: '4000000000000002'
+      exp_month: '09'
+      exp_year: '2028'
+      cvn: '123'
+    type: object
+    properties:
+      account_number:
+        type: string
+      exp_month:
+        type: string
+      exp_year:
+        type: string
+      cvn:
+        type: string
+    required:
+      - account_number
+      - exp_month
+      - exp_year
+      - cvn
+  2.CreatecardtokenauthenticationRequest:
+    title: 2.CreatecardtokenauthenticationRequest
+    example:
+      amount: 100000
+    type: object
+    properties:
+      amount:
+        type: integer
+        format: int32
+    required:
+      - amount
+  3.CreatecardchargesRequest:
+    title: 3.CreatecardchargesRequest
+    example:
+      token_id: '{{card_token}}'
+      external_id: TESTI-123123
+      authentication_id: '{{card_authentication_token}}'
+      amount: 100000
+    type: object
+    properties:
+      token_id:
+        type: string
+      external_id:
+        type: string
+      authentication_id:
+        type: string
+      amount:
+        type: integer
+        format: int32
+    required:
+      - token_id
+      - external_id
+      - authentication_id
+      - amount
+  1.getcustomeridrequest:
+    title: 1.getcustomeridrequest
+    example:
+      reference_id: user_6287881682396_{{$timestamp}}
+      mobile_number: '+62087881682396'
+      email: customer@website.com
+      type: INDIVIDUAL
+      individual_detail:
+        given_names: John
+        surname: Doe
+    type: object
+    properties:
+      reference_id:
+        type: string
+      mobile_number:
+        type: string
+      email:
+        type: string
+      type:
+        type: string
+      individual_detail:
+        $ref: '#/definitions/IndividualDetail'
+    required:
+      - reference_id
+      - mobile_number
+      - email
+      - type
+      - individual_detail
+  IndividualDetail:
+    title: IndividualDetail
+    example:
+      given_names: John
+      surname: Doe
+    type: object
+    properties:
+      given_names:
+        type: string
+      surname:
+        type: string
+    required:
+      - given_names
+      - surname
+  2.LinkedtokenRequest:
+    title: 2.LinkedtokenRequest
+    example:
+      customer_id: '{{ewallet_customer_id}}'
+      channel_code: ID_SHOPEEPAY
+      properties:
+        success_redirect_url: https://chenlok.requestcatcher.com/success
+        failure_redirect_url: https://chenlok.requestcatcher.com/failed
+        callback_url: https://chenlok.requestcatcher.com
+    type: object
+    properties:
+      customer_id:
+        type: string
+      channel_code:
+        type: string
+      properties:
+        $ref: '#/definitions/Properties'
+    required:
+      - customer_id
+      - channel_code
+      - properties
+  Properties:
+    title: Properties
+    example:
+      success_redirect_url: https://chenlok.requestcatcher.com/success
+      failure_redirect_url: https://chenlok.requestcatcher.com/failed
+      callback_url: https://chenlok.requestcatcher.com
+    type: object
+    properties:
+      success_redirect_url:
+        type: string
+      failure_redirect_url:
+        type: string
+      callback_url:
+        type: string
+    required:
+      - success_redirect_url
+      - failure_redirect_url
+      - callback_url
+  userdetailrequest:
+    title: userdetailrequest
+    example:
+      credit: 100000000
+      detail:
+        name: ardian a
+    type: object
+    properties:
+      credit:
+        type: integer
+        format: int32
+      detail:
+        $ref: '#/definitions/Detail'
+    required:
+      - credit
+      - detail
+  Detail:
+    title: Detail
+    example:
+      name: ardian a
+    type: object
+    properties:
+      name:
+        type: string
+    required:
+      - name
+  OTPcheckerRequest:
+    title: OTPcheckerRequest
+    example:
+      mobileNumber: '85641211661'
+      otp: '9407'
+    type: object
+    properties:
+      mobileNumber:
+        type: string
+      otp:
+        type: string
+    required:
+      - mobileNumber
+      - otp
+  signuprequest:
+    title: signuprequest
+    example:
+      regId: dd23d23d
+      mobileNumber: '85641211661'
+      code: '+62'
+    type: object
+    properties:
+      regId:
+        type: string
+      mobileNumber:
+        type: string
+      code:
+        type: string
+    required:
+      - regId
+      - mobileNumber
+      - code
+  updateuserpersonaldata(reg1)request:
+    title: updateuserpersonaldata(reg1)request
+    example:
+      name: Ardian
+      email: xxx@hi.in
+      nik: '0912345678912342'
+      ktpImage: adsasd
+      ktpImageDate: adsda
+      selfieImageDate: asd
+      selfieImage: asd
+    type: object
+    properties:
+      name:
+        type: string
+      email:
+        type: string
+      nik:
+        type: string
+      ktpImage:
+        type: string
+      ktpImageDate:
+        type: string
+      selfieImageDate:
+        type: string
+      selfieImage:
+        type: string
+    required:
+      - name
+      - email
+      - nik
+      - ktpImage
+      - ktpImageDate
+      - selfieImageDate
+      - selfieImage
+  updateuserpaymentdata(reg3)[dana]request:
+    title: updateuserpaymentdata(reg3)[dana]request
+    example:
+      company: Ardian
+      job: xxx@hi.in
+      salary: '0912345678912342'
+      contactEmergencyName: adsasd
+      contactEmergencyNumber: '085641211662'
+      contactEmergencyType: asd
+    type: object
+    properties:
+      company:
+        type: string
+      job:
+        type: string
+      salary:
+        type: string
+      contactEmergencyName:
+        type: string
+      contactEmergencyNumber:
+        type: string
+      contactEmergencyType:
+        type: string
+    required:
+      - company
+      - job
+      - salary
+      - contactEmergencyName
+      - contactEmergencyNumber
+      - contactEmergencyType
+  userrequestchangeemailorpgonenumberrequest:
+    title: userrequestchangeemailorpgonenumberrequest
+    example:
+      type: mobileNumber
+      newValue: ''
+      reason: bla.. bla..
+    type: object
+    properties:
+      type:
+        type: string
+      newValue:
+        type: string
+      reason:
+        type: string
+    required:
+      - type
+      - newValue
+      - reason
+  updatechangenumber/emailrequest:
+    title: updatechangenumber/emailrequest
+    example:
+      type: mobileNumber
+      otp: '8394'
+    type: object
+    properties:
+      type:
+        type: string
+      otp:
+        type: string
+    required:
+      - type
+      - otp
+  changepinrequest:
+    title: changepinrequest
+    example:
+      oldPin: '2321'
+      newPin: '2322'
+      pinConfirmation: '2322'
+    type: object
+    properties:
+      oldPin:
+        type: string
+      newPin:
+        type: string
+      pinConfirmation:
+        type: string
+    required:
+      - oldPin
+      - newPin
+      - pinConfirmation
+  signinrequest:
+    title: signinrequest
+    example:
+      mobileNumber: '85641211667'
+    type: object
+    properties:
+      mobileNumber:
+        type: string
+    required:
+      - mobileNumber
+  pinsetuprequest:
+    title: pinsetuprequest
+    example:
+      pin: '2323'
+      pinConfirmation: '2324'
+    type: object
+    properties:
+      pin:
+        type: string
+      pinConfirmation:
+        type: string
+    required:
+      - pin
+      - pinConfirmation
+  setuppinrequest:
+    title: setuppinrequest
+    example:
+      pin: '2322'
+      pinConfirmation: '2322'
+    type: object
+    properties:
+      pin:
+        type: string
+      pinConfirmation:
+        type: string
+    required:
+      - pin
+      - pinConfirmation
+  updateuserpaymentdata(reg3)[gopay]request:
+    title: updateuserpaymentdata(reg3)[gopay]request
+    example:
+      company: Ardian
+      job: xxx@hi.in
+      salary: '0912345678912342'
+      contactEmergencyName: adsasd
+      contactEmergencyNumber: '085641211662'
+      contactEmergencyType: asd
+    type: object
+    properties:
+      company:
+        type: string
+      job:
+        type: string
+      salary:
+        type: string
+      contactEmergencyName:
+        type: string
+      contactEmergencyNumber:
+        type: string
+      contactEmergencyType:
+        type: string
+    required:
+      - company
+      - job
+      - salary
+      - contactEmergencyName
+      - contactEmergencyNumber
+      - contactEmergencyType
+  updateuserpaymentdata(reg3)[cardgetToken]Request:
+    title: updateuserpaymentdata(reg3)[cardgetToken]Request
+    example:
+      company: Ardian
+      job: xxx@hi.in
+      salary: '0912345678912342'
+      contactEmergencyName: adsasd
+      contactEmergencyNumber: '085641211662'
+      contactEmergencyType: asd
+    type: object
+    properties:
+      company:
+        type: string
+      job:
+        type: string
+      salary:
+        type: string
+      contactEmergencyName:
+        type: string
+      contactEmergencyNumber:
+        type: string
+      contactEmergencyType:
+        type: string
+    required:
+      - company
+      - job
+      - salary
+      - contactEmergencyName
+      - contactEmergencyNumber
+      - contactEmergencyType
+  updateuserpaymentdata(reg3)[cardcheckauthorcharge]request:
+    title: updateuserpaymentdata(reg3)[cardcheckauthorcharge]request
+    example:
+      company: Ardian
+      job: xxx@hi.in
+      salary: '0912345678912342'
+      contactEmergencyName: adsasd
+      contactEmergencyNumber: '085641211662'
+      contactEmergencyType: asd
+    type: object
+    properties:
+      company:
+        type: string
+      job:
+        type: string
+      salary:
+        type: string
+      contactEmergencyName:
+        type: string
+      contactEmergencyNumber:
+        type: string
+      contactEmergencyType:
+        type: string
+    required:
+      - company
+      - job
+      - salary
+      - contactEmergencyName
+      - contactEmergencyNumber
+      - contactEmergencyType
+security:
+  - auth: []
+tags:
+  - name: transaction
+  - name: merchant
+  - name: admin
+  - name: card
+  - name: ewallet
+  - name: user
